@@ -1,0 +1,25 @@
+{
+  "name": "web_theoret_jessica_tp2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aethsmq/web_theoret_jessica_tp2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aethsmq/web_theoret_jessica_tp2/issues"
+  },
+  "homepage": "https://github.com/aethsmq/web_theoret_jessica_tp2#readme",
+  "dependencies": {
+    "animejs": "^4.2.2",
+    "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
+    "typed.js": "^2.1.0"
+  }
+}
