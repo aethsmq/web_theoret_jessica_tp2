@@ -1,0 +1,86 @@
+body {
+  background-color: #0c0b11;
+  background-image: url("../../assets/img/XG%20logo.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: -1;
+}
+
+.text2 {
+  margin-top: 90px;
+}
+
+.grid-container {
+  /* Base setup */
+  display: grid;
+  gap: 10px; /* Space between the boxes */
+  min-height: 100vh;
+  padding: 10px;
+  color: white;
+
+  /* 1. Define Columns (3 equal columns) */
+  grid-template-columns: 1fr 1fr 1fr;
+
+  /* 2. Define Rows (5 rows with flexible height 'auto' or '1fr') */
+  grid-template-rows: auto auto 1fr auto auto;
+
+  /* 3. Define the Layout using named areas (The Easiest Part!) */
+  grid-template-areas:
+    "header header square"
+    "text-long center-main text-right"
+    "map center-main gif-right" /* gif-right spans 2 rows */
+    "gif-left center-main graphic"
+    "gif-left center-main graphic";
+}
+
+/* 4. Assign each element to its area */
+.grid-header {
+  grid-area: header;
+}
+.grid-square {
+  grid-area: square;
+  background-color: lightgray;
+}
+.grid-text-long {
+  grid-area: text-long;
+}
+.grid-map {
+  grid-area: map;
+}
+.grid-gif-left {
+  grid-area: gif-left;
+} /* This spans two rows due to 'gif-left' in two different rows above */
+.grid-center-main {
+  grid-area: center-main;
+  /* Centers the text vertically inside the main block */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grid-text-right {
+  grid-area: text-right;
+}
+.grid-gif-right {
+  grid-area: gif-right;
+}
+.grid-graphic {
+  grid-area: graphic;
+}
+
+/* Add visual borders and content management */
+.grid-container > div {
+  border: 1px solid white;
+  padding: 10px;
+  /* Crucial for managing content overflow (as discussed before) */
+  overflow: auto;
+}
+
+.gala {
+  width: 600px;
+  height: 200px;
+}
+
+.maya {
+  width: 385px;
+  height: 200px;
+}
