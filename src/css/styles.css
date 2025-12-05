@@ -1,8 +1,9 @@
 body {
   background-color: #0c0b11;
-  background-image: url("../../assets/img/XG%20logo.jpg");
+  background-image: url("../../assets/img/Shooting\ Star\ Logo\ Sticker\ by\ XG\ Official.gif");
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: 250px;
   z-index: -1;
 }
 
@@ -21,19 +22,23 @@ body {
   /* 1. Define Columns (3 equal columns) */
   grid-template-columns: 1fr 1fr 1fr;
 
-  /* 2. Define Rows (5 rows with flexible height 'auto' or '1fr') */
-  grid-template-rows: auto auto 1fr auto auto;
+  /* 2. Define Rows: We use 4 '1fr' rows for the main content blocks 
+     to ensure they share space evenly and are flexible. */
+  grid-template-rows: auto auto 1fr auto auto auto;
+  /* auto (header) + 4 * 1fr (main content) + auto (footer/extra row) */
 
-  /* 3. Define the Layout using named areas (The Easiest Part!) */
+  /* 3. Define the Layout using named areas. 
+     The vertical position is set here, the spanning is set below. */
   grid-template-areas:
     "header header square"
     "text-long center-main text-right"
-    "map center-main gif-right" /* gif-right spans 2 rows */
+    "text-long center-main gif-right"
+    "map center-main gif-right"
     "gif-left center-main graphic"
     "gif-left center-main graphic";
 }
 
-/* 4. Assign each element to its area */
+/* 4. Assign each element to its area AND define the vertical span */
 .grid-header {
   grid-area: header;
 }
@@ -41,15 +46,36 @@ body {
   grid-area: square;
   background-color: lightgray;
 }
+
+/* --- The Height Balancing Fixes --- */
+
+/* text-long spans 1 row (from the template above) */
 .grid-text-long {
   grid-area: text-long;
 }
+
+/* map spans 2 rows */
 .grid-map {
   grid-area: map;
+  /* Starts at line 3 and spans 2 rows */
 }
+
+/* text-right spans 1 row (from the template above) */
+.grid-text-right {
+  grid-area: text-right;
+}
+
+/* gif-right spans 2 rows (to visually balance map) */
+.grid-gif-right {
+  grid-area: gif-right;
+}
+
+/* --- Remaining Elements --- */
+
 .grid-gif-left {
   grid-area: gif-left;
-} /* This spans two rows due to 'gif-left' in two different rows above */
+  /* Starts at line 5 and spans 2 rows */
+}
 .grid-center-main {
   grid-area: center-main;
   /* Centers the text vertically inside the main block */
@@ -57,30 +83,29 @@ body {
   align-items: center;
   justify-content: center;
 }
-.grid-text-right {
-  grid-area: text-right;
-}
-.grid-gif-right {
-  grid-area: gif-right;
-}
 .grid-graphic {
   grid-area: graphic;
 }
 
 /* Add visual borders and content management */
 .grid-container > div {
-  border: 1px solid white;
+  border: 2px solid white;
   padding: 10px;
   /* Crucial for managing content overflow (as discussed before) */
   overflow: auto;
 }
 
+.text2 {
+  color: white;
+  text-align: center;
+  height: 1px;
+}
 .gala {
   width: 600px;
-  height: 200px;
+  height: 150px;
 }
 
-.maya {
-  width: 385px;
-  height: 200px;
+.XG {
+  width: 400px;
+  height: 300px;
 }
