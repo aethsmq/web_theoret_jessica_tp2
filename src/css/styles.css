@@ -5,6 +5,7 @@ body {
   background-position: center center;
   background-size: 250px;
   z-index: -1;
+  font-family: jura, sans-serif;
 }
 
 .text2 {
@@ -22,8 +23,6 @@ body {
   /* 1. Define Columns (3 equal columns) */
   grid-template-columns: 1fr 1fr 1fr;
 
-  /* 2. Define Rows: We use 4 '1fr' rows for the main content blocks 
-     to ensure they share space evenly and are flexible. */
   grid-template-rows: auto auto 1fr auto auto auto;
   /* auto (header) + 4 * 1fr (main content) + auto (footer/extra row) */
 
@@ -44,7 +43,10 @@ body {
 }
 .grid-square {
   grid-area: square;
-  background-color: lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 /* --- The Height Balancing Fixes --- */
@@ -89,7 +91,7 @@ body {
 
 /* Add visual borders and content management */
 .grid-container > div {
-  border: 2px solid white;
+  border: 1.5px solid white;
   padding: 10px;
   /* Crucial for managing content overflow (as discussed before) */
   overflow: auto;
@@ -108,4 +110,64 @@ body {
 .XG {
   width: 400px;
   height: 300px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Barrio&display=swap");
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+}
+
+.chart-container {
+  width: 370px;
+  height: 150px;
+}
+
+.btn-primary {
+  margin: 0;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.battery-casing {
+  /* Dimensions and border for the battery body */
+  width: 250px;
+  height: 30px;
+  border: 4px solid #fff; /* White border for the case */
+  border-radius: 10px;
+  position: relative; /* Important for positioning the cap and the bar */
+  padding: 5px; /* Padding for the inner bar */
+  box-sizing: border-box; /* Include padding in the total size */
+}
+
+.battery-cap {
+  /* The small bump on top of the battery */
+  width: 5px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 0 5px 5px 0;
+  position: absolute;
+  top: 50%;
+  right: -10px; /* Position right outside the main casing */
+  transform: translateY(-50%);
+}
+
+.battery-level {
+  /* The inner charging bar's initial state */
+  width: 0%; /* Starts at 0% width */
+  height: 100%;
+  background-color: #fff; /* Initial color (e.g., green) */
+  border-radius: 3px;
+  transform-origin: left; /* Ensures animation grows from the left */
+}
+
+/* Zdog canvas sizing so the illustration is visible */
+.zdog-canvas {
+  width: 90px;
+  height: 30px;
+  display: block;
 }
