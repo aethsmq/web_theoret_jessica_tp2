@@ -33,8 +33,7 @@ new Chart(document.querySelector("#a").getContext("2d"), {
     scales: {
       y: {
         beginAtZero: true,
-        // min: 10,
-        // max: 100,
+
         title: {
           display: true,
           text: "% of streams",

@@ -7,7 +7,6 @@ const illo = new Zdog.Illustration({
   resize: true,
 });
 
-// Create a simple circle/eye
 const circle = new Zdog.Ellipse({
   addTo: illo,
   diameter: 80,
@@ -16,7 +15,6 @@ const circle = new Zdog.Ellipse({
   stroke: false,
 });
 
-// Animation loop
 function animate() {
   circle.rotate.y += 0.01;
   illo.updateRenderGraph();

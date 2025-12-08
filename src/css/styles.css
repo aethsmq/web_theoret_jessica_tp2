@@ -13,22 +13,16 @@ body {
 }
 
 .grid-container {
-  /* Base setup */
   display: grid;
-  gap: 10px; /* Space between the boxes */
+  gap: 10px;
   height: 100vh;
   padding: 10px;
   color: white;
   box-sizing: border-box;
 
-  /* 1. Define Columns (3 equal columns) */
   grid-template-columns: 1fr 1fr 1fr;
-
-  /* Distribute 100vh evenly across 6 rows */
   grid-template-rows: repeat(6, 1fr);
 
-  /* 3. Define the Layout using named areas. 
-     The vertical position is set here, the spanning is set below. */
   grid-template-areas:
     "header header square"
     "text-long center-main text-right"
@@ -38,7 +32,6 @@ body {
     "gif-left center-main graphic";
 }
 
-/* 4. Assign each element to its area AND define the vertical span */
 .grid-header {
   grid-area: header;
 }
@@ -50,20 +43,15 @@ body {
   gap: 15px;
 }
 
-/* --- The Height Balancing Fixes --- */
-
-/* text-long spans 1 row (from the template above) */
 .grid-text-long {
   grid-area: text-long;
   overflow: auto;
 }
 
-/* map spans 2 rows */
 .grid-map {
   grid-area: map;
   overflow: hidden;
   padding: 0;
-  /* Starts at line 3 and spans 2 rows */
 }
 
 #carte {
@@ -71,7 +59,6 @@ body {
   height: 100%;
 }
 
-/* text-right spans 1 row (from the template above) */
 .grid-text-right {
   grid-area: text-right;
   display: flex;
@@ -79,16 +66,13 @@ body {
   justify-content: center;
 }
 
-/* gif-right spans 2 rows (to visually balance map) */
 .grid-gif-right {
   grid-area: gif-right;
 }
 
-/* --- Remaining Elements --- */
-
 .grid-gif-left {
   grid-area: gif-left;
-  /* Starts at line 5 and spans 2 rows */
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,7 +81,6 @@ body {
 }
 .grid-center-main {
   grid-area: center-main;
-  /* Centers the text vertically inside the main block */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,11 +98,9 @@ body {
   overflow: hidden;
 }
 
-/* Add visual borders and content management */
 .grid-container > div {
   border: 1.5px solid white;
   padding: 10px;
-  /* Content scrolls within cells if it overflows */
   overflow: auto;
   box-sizing: border-box;
 }
@@ -149,8 +130,8 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Barrio&display=swap");
 
 .chart-container {
-  width: 370px;
-  height: 145px;
+  width: 100%;
+  height: 100%;
 }
 
 .btn-primary {
@@ -164,38 +145,34 @@ body {
 }
 
 .battery-casing {
-  /* Dimensions and border for the battery body */
   width: 250px;
   height: 55px;
-  border: 4px solid #fff; /* White border for the case */
+  border: 4px solid #fff;
   border-radius: 10px;
-  position: relative; /* Important for positioning the cap and the bar */
-  padding: 5px; /* Padding for the inner bar */
-  box-sizing: border-box; /* Include padding in the total size */
+  position: relative;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .battery-cap {
-  /* The small bump on top of the battery */
   width: 10px;
   height: 25px;
   background-color: #fff;
   border-radius: 0 5px 5px 0;
   position: absolute;
   top: 50%;
-  right: -10px; /* Position right outside the main casing */
+  right: -10px;
   transform: translateY(-50%);
 }
 
 .battery-level {
-  /* The inner charging bar's initial state */
-  width: 0%; /* Starts at 0% width */
+  width: 0%;
   height: 100%;
-  background-color: #fff; /* Initial color (e.g., green) */
+  background-color: #fff;
   border-radius: 3px;
-  transform-origin: left; /* Ensures animation grows from the left */
+  transform-origin: left;
 }
 
-/* Zdog canvas sizing so the illustration is visible */
 .zdog-canvas {
   width: 90px;
   height: 55px;
