@@ -12,7 +12,7 @@ const circle = new Zdog.Ellipse({
   addTo: illo,
   diameter: 80,
   fill: true,
-  color: "#a7164e91",
+  color: "#163da791",
   stroke: false,
 });
 
